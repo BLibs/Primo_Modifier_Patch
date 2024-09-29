@@ -26,7 +26,7 @@ To combat this problem, the script links the items to their modifiers using the 
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/BLibs/Primo_Modifier_Patch/.git
+    git clone https://github.com/BLibs/Primo_Modifier_Patch.git
     ```
 2. Navigate to the project directory:
     ```sh
