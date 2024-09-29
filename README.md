@@ -52,6 +52,6 @@ The script can either be ran directly as a Python file or compiled into an .exe 
     ```sh
     python main.py
     ```
-- Compile the .exe which can then be ran in any environment, in my case as a scheduled task in Windows.
+- Compile the .exe which can then be ran in any environment.
     ```sh
     pyinstaller --onefile --clean main.py
