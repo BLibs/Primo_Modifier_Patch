@@ -1,3 +1,4 @@
+
 import pandas as pd
 
 
@@ -43,7 +44,7 @@ def get_mod_group():
 # Gets the mod selection from the user to see which items are going to need to be patched
 def get_mod(mod_group):
     # Setting the modifier dataframe to the mod map file
-    mdf = pd.read_excel("ModMap.xlsx", sheet_name=mod_group)
+    mdf = pd.read_excel("data_files/ModMap.xlsx", sheet_name=mod_group)
     # While true (or essentially until the function returns a valid selection)...
     while True:
         print("\nSelect a Mod: ")

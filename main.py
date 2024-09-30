@@ -5,27 +5,26 @@ import threading
 import time
 import requests
 
-
 ''' This project is designed to automatically update modifier groups at scale for Primo. If the price of a modifier 
     changes, this has a ripple effect on the free variable that would be attached to the mod group. This group says 
     that the mods have certain values, and the sum of those values is 'free' on the item, which would allow customers 
     to sub default mods for others while maintaining the cost value of the mods that come on the hoagie. 
-    
+
     This field is not dynamic however, requiring that each mod group that uses one of the mods be patched after an 
     update. 
-    
+
     The first part of this project is a database file in the form of an .xlsx file linking the relationship between all 
     items and the mods that they come with by default. The only constant between the items on the JSON level is the SKU
     that they are using across all establishments. 
-    
+
     Once the user selects the mod that they updated (tagged with an integer value in ModMap.xlsx), we find all items
     in PrimoDB.xlsx that would be impacted. These items have their SKUs kept in a list, which will then be run 
     through the various functions that make up this process. 
-    
+
     Groups will have the default modifiers evaluated and summed, checking for discrepancies between the value of the
     mods and the free variable value on the modifier group level. If they are not the same value, we overwrite the value
     of the free variable and PATCH the modifier group through the API.
-    
+
     Process is currently conducted by selecting a single establishment and a single mod that would have been updated.
     '''
 
@@ -259,8 +258,8 @@ def main():
     global df
     global mdf
     # Set the dataframes based on the mod group that was selected
-    df = pd.read_excel("PrimoDB.xlsx", sheet_name=mod_group)
-    mdf = pd.read_excel("ModMap.xlsx", sheet_name=mod_group)
+    df = pd.read_excel("data_files/PrimoDB.xlsx", sheet_name=mod_group)
+    mdf = pd.read_excel("data_files/ModMap.xlsx", sheet_name=mod_group)
 
     # Get the choice of a mod within the selected group, returned as an int
     mod_list_choice = get_mod(mod_group)
