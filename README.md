@@ -9,6 +9,7 @@ This script gets a user input for which mod they recently updated the price of, 
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
+- [Improvements](#improvements)
 
 ## Introduction
 
@@ -55,3 +56,9 @@ The script can either be ran directly as a Python file or compiled into an .exe 
 - Compile the .exe which can then be ran in any environment.
     ```sh
     pyinstaller --onefile --clean main.py
+
+## Improvements
+
+1. Swap out Threading for process based concurrency. Something like ThreadPoolExecutor would provide better speeds and could still be coupled with Threading module for maximum performance.
+2. Move from CLI to GUI based project.
+3. Need to incorporate logging of patched mod groups in a clean and easy to read format. 
