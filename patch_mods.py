@@ -3,6 +3,8 @@ from config import API
 from get_data import get_product_id, get_mod_groups, get_mods_from_group
 
 
+# TODO line 58
+
 # Patch a mod class with the new free value
 def patch_mods(mod_class, created_by, product, updated_by, item_id, amount_free):
     url = f"https://primohoagies.revelup.com/resources/ProductModifierClass/{item_id}/"
@@ -23,7 +25,8 @@ def patch_mods(mod_class, created_by, product, updated_by, item_id, amount_free)
 
     response = requests.request("PATCH", url, json=payload, headers=headers)
 
-    print(response)  # 202 would mean the PATCH went through on the group without issue
+    # 202 would mean the PATCH went through on the group without issue
+    print(f"Patched item: {product}, Response: {response}, New Free Amount: {amount_free}")
 
 
 # Main patch function that the items will be run through
@@ -41,8 +44,8 @@ def patch_main(est_choice, sku):
         active = group.get("active")
         # Running a check to see if the item is active and the free field is active and more than $0.00
         if active and free and free > 0:
-            print("___________")
-            print(f"Free amount: {free}")
+            # print("___________")
+            # print(f"Free amount: {free}")
             # All required variables for patching a mod group through API
             product_id = group.get('id')
             mod_class = group.get('modifier_class')
@@ -52,6 +55,7 @@ def patch_main(est_choice, sku):
             # Getting the sum of all default mods in the group
             mod_total = get_mods_from_group(product_id)
             # If the mod total is different from free, we are going to patch the mod group
-            if mod_total != free:
+            # TODO reference the logic of skipping 0 sum groups in README updates; push refactored code to repo
+            if mod_total != free and int(mod_total) != 0:  # If mod sum is 0, don't patch the group.
                 print("PATCHING!")
                 patch_mods(mod_class, created, product, updated, product_id, mod_total)

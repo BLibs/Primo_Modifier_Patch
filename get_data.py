@@ -20,7 +20,6 @@ def get_product_id(est_choice, sku):
     response = response[0]
     response = response.get("id")
 
-    print("*****", response, "*****")
     return response
 
 
@@ -105,15 +104,12 @@ def get_mods_from_group(uid):
         uri = items.get('modifier')
         # Only if the item is default...
         if default:
-            # Print the id of the mod and the URI attached to the parent mod
-            print(f"Default mod: {mod_id} {uri}")
             # Get the mods price from the URI
             price = get_mod_price(uri)
             # If there is a price on the mod...
             if price:
                 # Sum to total
                 sum_total += price
-    print(f"total: {sum_total}")
 
     ''' Once all items are assessed, we can return the sum to the main_patch function for analysis.
         If the sum total is not equal to the free field, it will overwrite the free field variable
@@ -136,5 +132,4 @@ def get_mod_price(mod_id):
     price = response.get('price')
 
     # Converting the price of the mod to a float for comparison in main patch function
-    print(float(price))
     return price
