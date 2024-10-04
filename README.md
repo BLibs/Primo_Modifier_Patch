@@ -61,4 +61,5 @@ The script can either be ran directly as a Python file or compiled into an .exe 
 
 1. Swap out Threading for process based concurrency. Something like ThreadPoolExecutor would provide better speeds and could still be coupled with Threading module for maximum performance.
 2. Move from CLI to GUI based project.
-3. Need to incorporate logging of patched mod groups in a clean and easy to read format. 
+3. Need to incorporate logging of patched mod groups in a clean and easy to read format.
+4. Look through ways to cut down on API calls.
