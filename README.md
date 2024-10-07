@@ -63,3 +63,5 @@ The script can either be ran directly as a Python file or compiled into an .exe 
 2. Move from CLI to GUI based project.
 3. Need to incorporate logging of patched mod groups in a clean and easy to read format.
 4. Look through ways to cut down on API calls.
+5. API call logging.
+6. Implement a group of frequently patched mods so they can all be run at once.
