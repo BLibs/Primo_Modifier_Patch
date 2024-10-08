@@ -65,3 +65,4 @@ The script can either be ran directly as a Python file or compiled into an .exe 
 4. Look through ways to cut down on API calls.
 5. API call logging.
 6. Implement a group of frequently patched mods so they can all be run at once.
+7. Need to join threads at the end of patch function to output results and get user input to continue. 
