@@ -33,9 +33,13 @@ from patch_mods import patch_main
 
 # Takes the number from the mod in find_mod_number and locates all items tagged to mod in PrimoDB. Returns SKU list
 def get_sku_from_mod_id(name):
-    items_list = df.loc[df['Mod'].eq(name)]['SKU'].to_list()
+    item_list = []
 
-    return items_list
+    for i in range(1, 6):
+        items = df.loc[df[f'Mod{i}'].eq(name)]['SKU'].to_list()
+        item_list = item_list + items
+
+    return item_list
 
 
 # Split the list of returned SKUs to be patched into smaller lists for concurrent processing
