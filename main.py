@@ -35,10 +35,14 @@ from patch_mods import patch_main
 def get_sku_from_mod_id(name):
     item_list = []
 
+    # For each unique mod row in data table...
     for i in range(1, 6):
+        # Find the SKU of the items where the mod id matches the passed parameter
         items = df.loc[df[f'Mod{i}'].eq(name)]['SKU'].to_list()
+        # Concatenate the lists with each loop
         item_list = item_list + items
 
+    # Return a single list of all entries
     return item_list
 
 
